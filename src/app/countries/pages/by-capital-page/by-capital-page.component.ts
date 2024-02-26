@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrl: './by-capital-page.component.scss'
 })
 export class ByCapitalPageComponent {
-
+  searchByCapital = (term: string) => {
+    console.log('desde by capital page')
+    console.log({term})
+  }
 }

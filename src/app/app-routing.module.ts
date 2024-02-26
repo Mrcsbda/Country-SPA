@@ -6,7 +6,7 @@ import { ContactPageComponent } from './shared/pages/contact-page/contact-page.c
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'home',
     component: HomePageComponent
   },
   {
@@ -14,8 +14,8 @@ const routes: Routes = [
     component: AboutPageComponent
   },
   {
-    path: 'contact',
-    component: ContactPageComponent
+    path: '',
+    loadChildren: () => import('./countries/countries.module').then(m => m.CountriesModule)
   },
   {
     path: '**',
