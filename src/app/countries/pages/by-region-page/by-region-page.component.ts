@@ -13,6 +13,7 @@ export class ByRegionPageComponent implements OnInit {
   countries: Country[] = [];
   regions: Region[] = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
   selectedRegion?: Region;
+  isLoading: boolean = false;
 
   constructor(private countriesService: CountriesService) { }
   ngOnInit(): void {
@@ -21,10 +22,12 @@ export class ByRegionPageComponent implements OnInit {
   }
 
   searchByRegion = (term: Region) => {
+    this.isLoading = true;
     this.selectedRegion = term;
     this.countriesService.searchRegion(term)
       .subscribe(countries => {
         this.countries = countries;
+        this.isLoading = false;
       })
     console.log(this.selectedRegion)
   }

@@ -10,7 +10,7 @@ import { Country } from '../../interfaces/country.interfaces';
 export class ByCapitalPageComponent implements OnInit{
   countries: Country[] = [];
   initialValue: string = '';
-  public isLoading: boolean = false;
+  isLoading: boolean = false;
   constructor(private countriesService: CountriesService) { }
   ngOnInit(): void {
     this.countries = this.countriesService.cacheStore.byCapital.countries;
